@@ -246,7 +246,7 @@ build_fabric-baseimage() {
   git clone https://github.com/hyperledger/fabric-baseimage.git
 
   cd $GOPATH/src/github.com/hyperledger/fabric-baseimage
-  sg docker -c "make couchdb Kafka zookeeper docker"
+  sg docker -c "make couchdb kafka zookeeper docker"
 
   if [ $? != 0 ]; then
     echo -e "\nERROR: Unable to build the Fabric Baseimage components.\n"
