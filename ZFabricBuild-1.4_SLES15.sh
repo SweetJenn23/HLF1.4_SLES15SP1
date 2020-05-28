@@ -243,7 +243,7 @@ build_fabric-baseimage() {
   cd $GOPATH/src/github.com/hyperledger
   # Delete fabric directory, if it exists
   rm -rf fabric-baseimage
-  git clone https://github.com/hyperledger/fabric-baseimage.git
+  git clone -b v0.4.20 https://github.com/hyperledger/fabric-baseimage.git
 
   cd $GOPATH/src/github.com/hyperledger/fabric-baseimage
   sg docker -c "make couchdb kafka zookeeper docker"
