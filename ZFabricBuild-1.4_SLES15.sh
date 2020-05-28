@@ -235,6 +235,10 @@ build_hyperledger_fabric-ca() {
 # Build the Hyperledger Fabric Baseimage
 build_fabric-baseimage() {
   echo -e "\n*** build_fabric-baseimage ***\n"
+  
+   # Setup Environment Variables
+  export GOPATH=$HOME/git
+  export PATH=/opt/go/bin:$PATH
 
   # Download latest Hyperledger Fabric codebase
   if [ ! -d $GOPATH/src/github.com/hyperledger ]; then
@@ -393,9 +397,9 @@ else
   export GOROOT=/opt/go
 fi
 
+build_fabric-baseimage $OS_FLAVOR
 build_hyperledger_fabric $OS_FLAVOR
 build_hyperledger_fabric-ca $OS_FLAVOR
-build_fabric-baseimage $OS_FLAVOR
 build_hyperledger_fabric-samples $OS_FLAVOR
 
 
